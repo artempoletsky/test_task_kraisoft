@@ -28,6 +28,7 @@
   width: $width;
   margin-left: -$width/2;
   font-size: xx-large;
+  pointer-events: none;
 }
 
 @media (max-width: 830px) {
@@ -38,5 +39,7 @@
 
     width: $width;
     margin-left: -$width/2;
+    top: 50%;
+    margin-top: -5px;
   }
 }
