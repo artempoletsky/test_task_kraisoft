@@ -32,15 +32,19 @@ function putShapeToFront(e: KonvaEventObject<MouseEvent>) {
   shape.zIndex(gameLayer.children.length - 1);
 }
 
+const image = new Image();
+image.src = "/placeholder.svg";
 function spawnRectangle(x: number, y: number) {
   runFireworks(x, y);
   Store.gameSpawnMode = false;
-  let shape = new Konva.Rect({
+
+  let shape = new Konva.Image({
+    image,
     x,
     y,
     width: 150,
     height: 100,
-    fill: "#228be6",
+    // fill: "#228be6",
     stroke: "#333",
   });
   shape.draggable(true);
