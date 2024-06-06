@@ -29,16 +29,13 @@
   margin-left: -$width/2;
   font-size: xx-large;
   pointer-events: none;
+  text-align: center;
 }
 
 @media (max-width: 830px) {
   .spawn_hint {
     top: 70px;
     font-size: large;
-    $width: 230px;
-
-    width: $width;
-    margin-left: -$width/2;
     top: 50%;
     margin-top: -5px;
   }

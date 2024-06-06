@@ -39,7 +39,7 @@ export default function Page() {
 
   return <div className={css.game}>
     <div ref={containerRef} className={css.konva}></div>
-    {spawnMode && <div className={css.spawn_hint}>Click to spawn a rectangle</div>}
+    {spawnMode && <div className={css.spawn_hint}>Click on canvas to spawn rectangle</div>}
     <div className={css.game_menu}>
       <Button onClick={() => {
         setSpawnMode(!spawnMode);
