@@ -50,7 +50,7 @@ function spawnRectangle(x: number, y: number) {
     stroke: "#333",
   });
   shape.draggable(true);
-  shape.on("mousedown touched", putShapeToFront);
+  shape.on("mousedown touchstart", putShapeToFront);
   gameLayer.add(shape);
 }
 

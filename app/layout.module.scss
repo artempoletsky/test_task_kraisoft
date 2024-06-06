@@ -34,9 +34,7 @@ $footer-bg: #18181d;
   margin-right: 10px;
 }
 
-.header_nav {
-  padding-top: 10px;
-}
+.header_nav {}
 
 .text_container {
   p {
@@ -72,9 +70,11 @@ $footer-bg: #18181d;
     margin: 0;
     padding: 20px 0;
   }
+
   .logo {
     margin: 0 auto;
   }
+
   .header_nav {
     display: flex;
     flex-direction: column;
