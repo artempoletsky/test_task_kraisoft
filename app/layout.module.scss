@@ -1,0 +1,17 @@
+
+$header-bg: #bcbce0;
+$footer-bg: #18181d;
+
+
+.header {
+  height: 100px;
+  background: $header-bg;
+}
+
+.footer {
+  height: 100px;
+  background: $footer-bg;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
