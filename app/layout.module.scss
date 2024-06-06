@@ -20,9 +20,13 @@ $footer-bg: #18181d;
 .footer {
   height: 100px;
   background: $footer-bg;
-  // bottom: 0;
-  // position: absolute;
-  // width: 100%;
+  color: white;
+}
+
+.footer_wrapper {
+  max-width: 1280px;
+  padding: 26px 20px 0;
+  margin: 0 auto;
 }
 
 .header_link {
