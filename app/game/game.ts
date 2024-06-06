@@ -1,3 +1,5 @@
+"use client";
+
 import Konva from "konva";
 import { createEffectsLayer, removeEffectsLayer, runFireworks } from "./effects";
 import { KonvaEventObject } from "konva/lib/Node";
@@ -32,12 +34,12 @@ function putShapeToFront(e: KonvaEventObject<MouseEvent>) {
   shape.zIndex(gameLayer.children.length - 1);
 }
 
-const image = new Image();
-image.src = "/placeholder.svg";
+
 function spawnRectangle(x: number, y: number) {
   runFireworks(x, y);
   Store.gameSpawnMode = false;
-
+  const image = new Image();
+  image.src = "/placeholder.svg";
   let shape = new Konva.Image({
     image,
     x,

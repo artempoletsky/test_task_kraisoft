@@ -9,6 +9,11 @@ import * as game from "./game";
 import { useStore } from "../store";
 
 
+function preloadImages() {
+  const image = new Image();
+  image.src = "/placeholder.svg";
+}
+
 export default function Page() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -19,14 +24,16 @@ export default function Page() {
     game.resize(clientWidth, clientHeight);
   }
 
+
   useEffect(() => {
+    preloadImages();
+
     window.addEventListener("resize", onWindowResize);
     game.init(containerRef.current!);
     return () => {
       game.destroy();
       window.removeEventListener("resize", onWindowResize);
-      if (setSpawnMode)
-        setSpawnMode(false);
+      setSpawnMode(false);
     };
   }, []);
 
