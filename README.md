@@ -49,5 +49,6 @@ npm run dev
 ## Remarkable project files overview
 
 `/app/game/effects.ts` - includes runFireworks method
+
 `/app/game/game.ts` - the Game's main logic.
 
