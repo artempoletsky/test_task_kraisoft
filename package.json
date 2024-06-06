@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@artempoletsky/easystore": "^0.2.0",
     "@mantine/core": "^7.10.1",
     "konva": "^9.3.11",
     "next": "14.2.3",

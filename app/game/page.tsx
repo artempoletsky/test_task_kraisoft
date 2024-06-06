@@ -4,48 +4,31 @@ import Konva from "konva";
 import { useEffect, useRef } from "react";
 import css from "./game.module.scss";
 import { createEffectsLayer, removeEffectsLayer } from "./effects";
+import { Button } from "@mantine/core";
+import * as game from "./game";
+
 
 export default function Page() {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  function onWindowResize(e: UIEvent) {
+    const { clientWidth, clientHeight } = containerRef.current!;
+    game.resize(clientWidth, clientHeight);
+  }
+
   useEffect(() => {
-    const container = containerRef.current!;
-
-    let stage = new Konva.Stage({
-      container: "game",
-      width: container.clientWidth,
-      height: container.clientHeight,
-    });
-
-    createEffectsLayer(stage);
-
-    // then create layer
-    var layer = new Konva.Layer();
-
-    // create our shape
-    var circle = new Konva.Circle({
-      x: stage.width() / 2,
-      y: stage.height() / 2,
-      radius: 70,
-      fill: 'red',
-      stroke: 'black',
-      strokeWidth: 4
-    });
-
-    circle.draggable(true);
-
-    // add the shape to the layer
-    layer.add(circle);
-
-    // add the layer to the stage
-    stage.add(layer);
-
-    // draw the image
-    layer.draw();
+    window.addEventListener("resize", onWindowResize);
+    game.init(containerRef.current!);
     return () => {
-      removeEffectsLayer(stage);
-    }
+      game.destroy();
+      window.removeEventListener("resize", onWindowResize);
+    };
   }, []);
 
-  return <div ref={containerRef} id="game" className={css.game}></div>;
+  return <div className={css.game}>
+    <div ref={containerRef} className={css.konva}></div>
+    <div className={css.game_menu}>
+      <Button onClick={game.spawnModeOn}>Spawn Rectangle</Button>
+    </div>
+  </div>;
 }

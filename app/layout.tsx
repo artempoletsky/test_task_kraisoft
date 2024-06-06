@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import css from "./layout.module.scss";
+import { MantineProvider } from "@mantine/core";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://unpkg.com/@mantine/core@7.10.1/styles.css" />
+      </head>
       <body className={inter.className}>
-        <header className={css.header}></header>
-        {children}
-        <footer className={css.footer}></footer>
+        <MantineProvider>
+          <header className={css.header}></header>
+          {children}
+          <footer className={css.footer}></footer>
+        </MantineProvider>
       </body>
     </html>
   );
