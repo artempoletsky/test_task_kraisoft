@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import css from "./layout.module.scss";
 import { MantineProvider } from "@mantine/core";
+import { StoreProvider } from "@artempoletsky/easystore";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,9 +26,13 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <MantineProvider>
-          <header className={css.header}></header>
-          {children}
-          <footer className={css.footer}></footer>
+          <StoreProvider>
+            <Header />
+            <div className={css.wrapper}>
+              {children}
+            </div>
+            <Footer />
+          </StoreProvider>
         </MantineProvider>
       </body>
     </html>

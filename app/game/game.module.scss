@@ -1,6 +1,7 @@
 .game {
   flex-grow: 1;
   position: relative;
+  min-height: 300px;
 }
 
 .game_menu {
@@ -17,4 +18,25 @@
   left: 0;
   top: 0;
   z-index: 0;
+}
+
+.spawn_hint {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  $width: 400px;
+  width: $width;
+  margin-left: -$width/2;
+  font-size: xx-large;
+}
+
+@media (max-width: 830px) {
+  .spawn_hint {
+    top: 70px;
+    font-size: large;
+    $width: 230px;
+
+    width: $width;
+    margin-left: -$width/2;
+  }
 }

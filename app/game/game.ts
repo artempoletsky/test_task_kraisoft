@@ -1,6 +1,7 @@
 import Konva from "konva";
 import { createEffectsLayer, removeEffectsLayer, runFireworks } from "./effects";
 import { KonvaEventObject } from "konva/lib/Node";
+import { Store } from "../store";
 
 let stage: Konva.Stage;
 let gameLayer: Konva.Layer;
@@ -33,7 +34,7 @@ function putShapeToFront(e: KonvaEventObject<MouseEvent>) {
 
 function spawnRectangle(x: number, y: number) {
   runFireworks(x, y);
-  spawnMode = false;
+  Store.gameSpawnMode = false;
   let shape = new Konva.Rect({
     x,
     y,
@@ -47,15 +48,10 @@ function spawnRectangle(x: number, y: number) {
   gameLayer.add(shape);
 }
 
-let spawnMode = false;
 function onStageClick(e: KonvaEventObject<MouseEvent>) {
-  if (spawnMode) {
+  if (Store.gameSpawnMode) {
     spawnRectangle(e.evt.layerX, e.evt.layerY);
   }
-}
-
-export function spawnModeOn() {
-  spawnMode = true;
 }
 
 export function resize(width: number, height: number) {
